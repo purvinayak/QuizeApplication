@@ -1,4 +1,4 @@
-//this is make application using Class Component
+//this  application makes using Class Component
 import React from 'react';
 import IconButton from '@mui/material/IconButton';
 import './styles.css'
