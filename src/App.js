@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Login from './Login'
+import Application from "./Application";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// class App extends React.Component {
+//   constructor() {
+//     super();
+  
+//   }
+
+
+//   render() {
+//     return (
+//       <div>
+//     {/* <Application/> */}
+//     <Login/>
+//       </div>
+//     );
+//   }
+// }
+
+// export default App;
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      Condition: true,
+    };
+    this.navigate = this.navigated.bind(this);
+  }
+
+  navigated() {
+    this.setState({ Condition: !this.state.Condition });
+  }
+
+  render() {
+    return (
+      <div>
+        {this.state.Condition ? (
+          <Login nav={this.navigate} />
+        ) : (
+          <Application nav={this.navigate} />
+        )}
+      </div>
+    );
+  }
 }
 
 export default App;
